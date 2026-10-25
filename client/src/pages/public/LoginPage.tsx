@@ -21,13 +21,13 @@ export const LoginPage: React.FC = () => {
     setError(null);
     if (newRole === 'donor') {
       setEmail('karthik.donor@example.com');
-      setPassword('password123');
+      setPassword('Donor@123');
     } else if (newRole === 'hospital') {
       setEmail('emergency@apollohospitals.org');
-      setPassword('password123');
+      setPassword('Hospital@123');
     } else {
       setEmail('admin@bloodlink.gov.in');
-      setPassword('password123');
+      setPassword('Admin@BloodLink2025');
     }
   };
 
