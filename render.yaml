@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: bloodlink-emergency-platform
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        value: super_secret_bloodlink_sqlite_jwt_2026!@#$
+      - key: JWT_EXPIRES_IN
+        value: 7d

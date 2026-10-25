@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# SQLite WAL and lock files (don't commit temp db locks)
+*.sqlite-shm
+*.sqlite-wal
+
+# Build artifacts
+dist/
+client/dist/
+
+# Environment files
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

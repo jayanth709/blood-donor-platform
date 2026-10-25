@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global Resets & Tokens ─────────────────────────────────────────────── */
+:root {
+  --red-primary: #dc1a3c;
+  --red-deep: #9f0e27;
+  --red-glow: rgba(220, 26, 60, 0.35);
+  --dark-bg: #050810;
+  --dark-card: #0b0f1f;
+  --dark-border: rgba(255,255,255,0.07);
+  --text-muted: rgba(255,255,255,0.45);
+  --text-body: rgba(255,255,255,0.75);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--dark-bg);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--dark-bg); }
+::-webkit-scrollbar-thumb { background: var(--red-primary); border-radius: 10px; }
+
+/* ─── Selection ──────────────────────────────────────────────────────────── */
+::selection { background: rgba(220,26,60,0.3); color: #fff; }
+
+/* ─── Emergency Pulse ────────────────────────────────────────────────────── */
+@keyframes emergency-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 26, 60, 0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(220, 26, 60, 0); }
+}
+.animate-emergency { animation: emergency-pulse 2s infinite; }
+
+/* ─── Blood Drop Float ───────────────────────────────────────────────────── */
+@keyframes blood-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+  33%       { transform: translateY(-18px) rotate(5deg); opacity: 1; }
+  66%       { transform: translateY(-8px) rotate(-3deg); opacity: 0.8; }
+}
+
+@keyframes drift {
+  0%   { transform: translate(0,0) scale(1); }
+  25%  { transform: translate(30px,-20px) scale(1.05); }
+  50%  { transform: translate(-10px,-40px) scale(0.98); }
+  75%  { transform: translate(-30px,-15px) scale(1.02); }
+  100% { transform: translate(0,0) scale(1); }
+}
+
+/* ─── Grid Noise Texture ─────────────────────────────────────────────────── */
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(220,26,60,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(220,26,60,0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* ─── Glass Cards ────────────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(220, 26, 60, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(220, 26, 60, 0.15);
+}
+
+/* ─── Glow Effects ───────────────────────────────────────────────────────── */
+.glow-red {
+  box-shadow: 0 0 30px rgba(220, 26, 60, 0.4), 0 0 60px rgba(220, 26, 60, 0.15);
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(220, 26, 60, 0.6);
+}
+
+/* ─── Gradient Text ─────────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #ff4d6d, #dc1a3c, #ff1744);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Animated Gradient Border ─────────────────────────────────────────── */
+@keyframes border-spin {
+  to { --angle: 360deg; }
+}
+
+/* ─── Scan line effect ──────────────────────────────────────────────────── */
+@keyframes scan {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ─── Heartbeat ─────────────────────────────────────────────────────────── */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%       { transform: scale(1.15); }
+  28%       { transform: scale(1); }
+  42%       { transform: scale(1.1); }
+  56%       { transform: scale(1); }
+}
+.animate-heartbeat { animation: heartbeat 1.5s ease-in-out infinite; }
+
+/* ─── Counter Number ────────────────────────────────────────────────────── */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Blob Orbs ─────────────────────────────────────────────────────────── */
+.blob-orb {
+  border-radius: 50%;
+  filter: blur(80px);
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ─── Utility ────────────────────────────────────────────────────────────── */
+.section-padding { padding: 5rem 0; }
+@media (min-width: 1024px) { .section-padding { padding: 7rem 0; } }
+
+/* Dashboard text stays readable */
+.dashboard-body {
+  color: #1e293b;
+  background: #f8fafc;
+}
