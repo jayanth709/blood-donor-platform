@@ -20,6 +20,11 @@ yarn-debug.log*
 yarn-error.log*
 *.log
 
+# Project report / viva docs (kept local only)
+FINAL_PROJECT_REPORT.md
+VIVA_PRESENTATION_CHEATSHEET.md
+review2_guide.md
+
 # Editor files
 .vscode/
 .idea/
